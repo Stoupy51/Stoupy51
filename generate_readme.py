@@ -31,7 +31,7 @@ SHIELDS: str = "style=flat-square&label="
 REPOSITORIES_QUERY: str = """
 query($login: String!, $cursor: String) {
 	user(login: $login) {
-		items: repositories(first: 100, after: $cursor, privacy: PUBLIC, ownerAffiliations: OWNER, isFork: false) {
+		items: repositories(first: 20, after: $cursor, privacy: PUBLIC, ownerAffiliations: OWNER, isFork: false) {
 			pageInfo { hasNextPage endCursor }
 			nodes {
 				name nameWithOwner url description stargazerCount isArchived pushedAt
