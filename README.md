@@ -9,6 +9,11 @@ I make Minecraft datapacks and the Python tools that build them.
 [![Modrinth](https://img.shields.io/badge/Modrinth-Stoupy51-1bd96a?logo=modrinth)](https://modrinth.com/user/Stoupy51)
 [![PyPI](https://img.shields.io/badge/PyPI-Stoupy51-3775A9?logo=pypi&logoColor=white)](https://pypi.org/user/Stoupy51/)
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="profile/snake-dark.svg">
+  <img src="profile/snake.svg" alt="Contribution graph">
+</picture>
+
 <img src="profile/stats.svg" alt="GitHub stats" height="170"> <img src="profile/top-langs.svg" alt="Top languages" height="170">
 
 </div>

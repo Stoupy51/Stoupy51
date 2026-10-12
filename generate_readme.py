@@ -129,7 +129,7 @@ PLATFORMS: list[Platform] = [
 	Platform(
 		name="Modrinth",
 		page=re.compile(r"\)\]\((https://modrinth\.com/(?:datapack|mod|plugin|resourcepack|project)/([\w-]+))"),
-		downloads=f"https://img.shields.io/modrinth/dt/{{slug}}?color=1bd96a&{SHIELDS}",
+		downloads=f"https://img.shields.io/modrinth/dt/{{slug}}?color=1b7f4e&{SHIELDS}",
 	),
 	Platform(
 		name="Smithed",
@@ -139,7 +139,7 @@ PLATFORMS: list[Platform] = [
 	Platform(
 		name="PMC",
 		page=re.compile(r"\)\]\((https://www\.planetminecraft\.com/data-pack/([\w-]+))"),
-		downloads=Platform.json_badge("https://www.planetminecraft.com/data-pack/{slug}/statsv2", "$.downloads", "6ec310"),
+		downloads=Platform.json_badge("https://www.planetminecraft.com/data-pack/{slug}/statsv2", "$.downloads", "3f7d0b"),
 	),
 ]
 """ Download sites of the datapacks, found by the first link to each in a README. """
@@ -226,11 +226,8 @@ class Project:
 # Functions
 def main() -> None:
 	repositories = [repo for owner in OWNERS for repo in fetch_nodes(REPOSITORIES_QUERY, owner, Repository)]
-	projects = [
-		Project.classify(repo)
-		for repo in sorted(repositories, key=lambda repo: (repo["stargazerCount"], repo["pushedAt"]), reverse=True)
-		if repo["nameWithOwner"] != f"{USER}/{USER}"
-	]
+	ranked = sorted(repositories, key=lambda repo: (not repo["isArchived"], repo["stargazerCount"], repo["pushedAt"]), reverse=True)
+	projects = [Project.classify(repo) for repo in ranked if repo["nameWithOwner"] != f"{USER}/{USER}"]
 	tables = {
 		**{
 			str(category): [project.row() for project in projects if project.category == category and not project.is_minor]
