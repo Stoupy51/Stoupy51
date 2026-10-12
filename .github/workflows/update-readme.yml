@@ -1,0 +1,52 @@
+
+name: Update README
+
+on:
+  schedule:
+    - cron: "37 5 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [generate_readme.py, .github/workflows/update-readme.yml]
+
+concurrency:
+  group: update-readme
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - uses: astral-sh/setup-uv@v10.2.0
+
+      - name: Generate project tables
+        run: uv run --python 3.14 generate_readme.py
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Generate stats card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&theme=transparent&hide_border=true
+          path: profile/stats.svg
+          token: ${{ github.token }}
+
+      - name: Generate top languages card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=${{ github.repository_owner }}&layout=compact&langs_count=8&theme=transparent&hide_border=true
+          path: profile/top-langs.svg
+          token: ${{ github.token }}
+
+      - uses: stefanzweifel/git-auto-commit-action@v7.2.0
+        with:
+          commit_message: "chore: 🔧 Update README"
+
