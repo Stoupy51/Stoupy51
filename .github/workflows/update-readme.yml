@@ -25,7 +25,7 @@ jobs:
 
       - uses: astral-sh/setup-uv@v10.2.0
 
-      - name: Generate project tables
+      - name: Generate project tables and contribution calendar
         run: uv run --python 3.14 generate_readme.py
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -45,14 +45,6 @@ jobs:
           options: username=${{ github.repository_owner }}&layout=compact&langs_count=8&theme=transparent&hide_border=true
           path: profile/top-langs.svg
           token: ${{ github.token }}
-
-      - name: Generate contribution graph
-        uses: Platane/snk/svg-only@v3
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            profile/snake.svg?palette=github-light
-            profile/snake-dark.svg?palette=github-dark
 
       - uses: stefanzweifel/git-auto-commit-action@v7.2.0
         with:

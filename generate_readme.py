@@ -1,4 +1,4 @@
-""" Regenerate the project tables of README.md from the public repositories of the accounts and their merged pull requests. """
+""" Regenerate the project tables of README.md and the contribution calendar it shows, from the GitHub API and PyPI. """
 # Imports
 import json
 import os
@@ -7,6 +7,7 @@ import urllib.error
 import urllib.request
 from collections import Counter
 from dataclasses import dataclass
+from datetime import date
 from enum import StrEnum
 from pathlib import Path
 from typing import TypedDict
@@ -27,6 +28,8 @@ START: str = "<!-- projects:start -->"
 END: str = "<!-- projects:end -->"
 SHIELDS: str = "style=flat-square&label="
 """ Query string of every table badge, unlabelled since the column header names the value. """
+CONTRIBUTION_LEVELS: list[str] = ["NONE", "FIRST_QUARTILE", "SECOND_QUARTILE", "THIRD_QUARTILE", "FOURTH_QUARTILE"]
+""" Values of GitHub's ContributionLevel enum, from no contribution to the most. """
 
 REPOSITORIES_QUERY: str = """
 query($login: String!, $cursor: String) {
@@ -49,6 +52,15 @@ query($login: String!, $cursor: String) {
 		items: pullRequests(first: 100, after: $cursor, states: MERGED) {
 			pageInfo { hasNextPage endCursor }
 			nodes { repository { nameWithOwner url description stargazerCount owner { login } } }
+		}
+	}
+}
+"""
+CALENDAR_QUERY: str = """
+query($login: String!) {
+	user(login: $login) {
+		contributionsCollection {
+			contributionCalendar { totalContributions weeks { contributionDays { date weekday contributionLevel } } }
 		}
 	}
 }
@@ -103,6 +115,18 @@ class PyPIInfo(TypedDict):
 	home_page: str | None
 	project_urls: dict[str, str] | None
 
+class ContributionDay(TypedDict):
+	date: str
+	weekday: int
+	contributionLevel: str
+
+class Week(TypedDict):
+	contributionDays: list[ContributionDay]
+
+class Calendar(TypedDict):
+	totalContributions: int
+	weeks: list[Week]
+
 
 class Category(StrEnum):
 	""" README section of a repository, in the order the sections appear. """
@@ -143,6 +167,64 @@ PLATFORMS: list[Platform] = [
 	),
 ]
 """ Download sites of the datapacks, found by the first link to each in a README. """
+
+
+@dataclass(frozen=True)
+class Palette:
+	path: Path
+	text: str
+	levels: list[str]
+	""" Cell color of each contribution level, in the order of `CONTRIBUTION_LEVELS`. """
+
+	def calendar_svg(self, calendar: Calendar) -> str:
+		""" Contribution calendar laid out like the one of the GitHub profile page. """
+		step, left, top = 13, 32, 58
+		weeks = calendar["weeks"]
+		width, height = left + len(weeks) * step, top + 7 * step + 28
+		legend_x = width - 40 - 5 * step
+
+		months = [
+			f'<text x="{left + x * step}" y="{top - 8}">{first:%b}</text>'
+			for x, week in enumerate(weeks)
+			if (first := date.fromisoformat(week["contributionDays"][0]["date"])).day <= 7
+		]
+		weekdays = [f'<text x="0" y="{top + day * step + 9}">{name}</text>' for day, name in ((1, "Mon"), (3, "Wed"), (5, "Fri"))]
+		cells = [
+			f'<rect x="{left + x * step}" y="{top + day["weekday"] * step}" width="10" height="10" rx="2" '
+			f'fill="{self.levels[CONTRIBUTION_LEVELS.index(day["contributionLevel"])]}"/>'
+			for x, week in enumerate(weeks)
+			for day in week["contributionDays"]
+		]
+		legend = [
+			f'<text x="{legend_x - 4}" y="{height - 8}" text-anchor="end">Less</text>',
+			*(
+				f'<rect x="{legend_x + i * step}" y="{height - 17}" width="10" height="10" rx="2" fill="{color}"/>'
+				for i, color in enumerate(self.levels)
+			),
+			f'<text x="{legend_x + 5 * step + 1}" y="{height - 8}">More</text>',
+		]
+		return "\n".join([
+			f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" '
+			f'font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="{self.text}">',
+			f'<text y="24" font-size="22" font-weight="600">{calendar["totalContributions"]:,} contributions in the last year</text>',
+			*months, *weekdays, *cells, *legend,
+			"</svg>\n",
+		])
+
+
+PALETTES: list[Palette] = [
+	Palette(
+		path=README.with_name("profile") / "calendar.svg",
+		text="#1f2328",
+		levels=["#eff2f5", "#aceebb", "#4ac26b", "#2da44e", "#116329"],
+	),
+	Palette(
+		path=README.with_name("profile") / "calendar-dark.svg",
+		text="#f0f6fc",
+		levels=["#151b23", "#033a16", "#196c2e", "#2ea043", "#56d364"],
+	),
+]
+""" GitHub's light and dark calendar colors, each drawn to its own file for the README to pick by theme. """
 
 
 @dataclass(frozen=True)
@@ -235,15 +317,27 @@ def main() -> None:
 		},
 		"🤝 Contributions": contribution_rows(fetch_nodes(PULL_REQUESTS_QUERY, USER, PullRequest)),
 	}
-	minor = sorted((project for project in projects if project.is_minor), key=lambda project: [*Category].index(project.category))
 
 	sections = [f"### {title}\n\n{markdown_table(rows)}" for title, rows in tables.items() if rows]
-	if minor:
-		summary = f"🗃️ Smaller things, without stars or releases ({len(minor)})"
-		table = markdown_table([project.minor_row() for project in minor])
-		sections.append(f"<details>\n<summary>{summary}</summary>\n\n{table}\n\n</details>")
+	if minor := [project for project in projects if project.is_minor]:
+		sections.append(minor_details(minor))
 	before, _, rest = README.read_text(encoding="utf-8").partition(START)
 	README.write_text(f"{before}{START}\n\n{'\n\n'.join(sections)}\n\n{END}{rest.partition(END)[2]}", encoding="utf-8")
+	write_calendars()
+
+
+def minor_details(minor: list[Project]) -> str:
+	""" Collapsed table of the projects without stars or releases, grouped by category. """
+	rows = [project.minor_row() for project in sorted(minor, key=lambda project: [*Category].index(project.category))]
+	summary = f"🗃️ Smaller things, without stars or releases ({len(rows)})"
+	return f"<details>\n<summary>{summary}</summary>\n\n{markdown_table(rows)}\n\n</details>"
+
+
+def write_calendars() -> None:
+	with urllib.request.urlopen(graphql_request(CALENDAR_QUERY, {"login": USER})) as response:
+		calendar: Calendar = json.load(response)["data"]["user"]["contributionsCollection"]["contributionCalendar"]
+	for palette in PALETTES:
+		palette.path.write_text(palette.calendar_svg(calendar), encoding="utf-8")
 
 
 def fetch_nodes[T](query: str, login: str, node_type: type[T]) -> list[T]:
@@ -255,17 +349,20 @@ def fetch_nodes[T](query: str, login: str, node_type: type[T]) -> list[T]:
 	nodes: list[T] = []
 	cursor: str | None = None
 	while True:
-		request = urllib.request.Request(
-			"https://api.github.com/graphql",
-			data=json.dumps({"query": query, "variables": {"login": login, "cursor": cursor}}).encode(),
-			headers={"Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}"},
-		)
-		with urllib.request.urlopen(request) as response:
+		with urllib.request.urlopen(graphql_request(query, {"login": login, "cursor": cursor})) as response:
 			page: Page[T] = json.load(response)["data"]["user"]["items"]
 		nodes += page["nodes"]
 		if not page["pageInfo"]["hasNextPage"]:
 			return nodes
 		cursor = page["pageInfo"]["endCursor"]
+
+
+def graphql_request(query: str, variables: dict[str, str | None]) -> urllib.request.Request:
+	return urllib.request.Request(
+		"https://api.github.com/graphql",
+		data=json.dumps({"query": query, "variables": variables}).encode(),
+		headers={"Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}"},
+	)
 
 
 def pypi_name(repo: Repository) -> str | None:
