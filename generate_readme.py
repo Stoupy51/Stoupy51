@@ -310,27 +310,33 @@ def main() -> None:
 	repositories = [repo for owner in OWNERS for repo in fetch_nodes(REPOSITORIES_QUERY, owner, Repository)]
 	ranked = sorted(repositories, key=lambda repo: (not repo["isArchived"], repo["stargazerCount"], repo["pushedAt"]), reverse=True)
 	projects = [Project.classify(repo) for repo in ranked if repo["nameWithOwner"] != f"{USER}/{USER}"]
-	tables = {
-		**{
-			str(category): [project.row() for project in projects if project.category == category and not project.is_minor]
-			for category in Category
-		},
+	rows = {
+		category: [project.row() for project in projects if project.category == category and not project.is_minor]
+		for category in Category
+	}
+	collapsed = {
 		"🤝 Contributions": contribution_rows(fetch_nodes(PULL_REQUESTS_QUERY, USER, PullRequest)),
+		str(Category.OTHER): rows[Category.OTHER],
+		str(Category.UNIVERSITY): rows[Category.UNIVERSITY],
+		"🗃️ Smaller things, without stars or releases": minor_rows([project for project in projects if project.is_minor]),
 	}
 
-	sections = [f"### {title}\n\n{markdown_table(rows)}" for title, rows in tables.items() if rows]
-	if minor := [project for project in projects if project.is_minor]:
-		sections.append(minor_details(minor))
+	sections = [
+		*(f"### {shown}\n\n{markdown_table(rows[shown])}" for shown in (Category.PYTHON, Category.DATAPACK) if rows[shown]),
+		*(
+			f"<details>\n<summary><b>{title}</b> ({len(table)})</summary>\n\n{markdown_table(table)}\n\n</details>"
+			for title, table in collapsed.items()
+			if table
+		),
+	]
 	before, _, rest = README.read_text(encoding="utf-8").partition(START)
 	README.write_text(f"{before}{START}\n\n{'\n\n'.join(sections)}\n\n{END}{rest.partition(END)[2]}", encoding="utf-8")
 	write_calendars()
 
 
-def minor_details(minor: list[Project]) -> str:
-	""" Collapsed table of the projects without stars or releases, grouped by category. """
-	rows = [project.minor_row() for project in sorted(minor, key=lambda project: [*Category].index(project.category))]
-	summary = f"🗃️ Smaller things, without stars or releases ({len(rows)})"
-	return f"<details>\n<summary>{summary}</summary>\n\n{markdown_table(rows)}\n\n</details>"
+def minor_rows(minor: list[Project]) -> list[dict[str, str]]:
+	""" Rows of the projects without stars or releases, grouped by category. """
+	return [project.minor_row() for project in sorted(minor, key=lambda project: [*Category].index(project.category))]
 
 
 def write_calendars() -> None:
