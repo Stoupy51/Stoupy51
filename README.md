@@ -72,25 +72,8 @@ Hover a project for its description. The tables below are rebuilt every day by [
 | [Energy-Datapack-Template](https://github.com/Stoupy51/Energy-Datapack-Template) <sub>archived</sub> |  | [![](https://img.shields.io/github/stars/Stoupy51/Energy-Datapack-Template?style=flat-square&label=)](https://github.com/Stoupy51/Energy-Datapack-Template/stargazers) |  |  |  | [![](https://img.shields.io/github/last-commit/Stoupy51/Energy-Datapack-Template?style=flat-square&label=)](https://github.com/Stoupy51/Energy-Datapack-Template/commits) |
 | [EnergyFlux](https://github.com/Stoupy51/EnergyFlux "Energy Flux is an Energy Manager to help the development of Energy Datapacks") <sub>archived</sub> | [![](https://img.shields.io/github/v/release/Stoupy51/EnergyFlux?style=flat-square&label=)](https://github.com/Stoupy51/EnergyFlux/releases) | [![](https://img.shields.io/github/stars/Stoupy51/EnergyFlux?style=flat-square&label=)](https://github.com/Stoupy51/EnergyFlux/stargazers) |  |  |  | [![](https://img.shields.io/github/last-commit/Stoupy51/EnergyFlux?style=flat-square&label=)](https://github.com/Stoupy51/EnergyFlux/commits) |
 
-### 🧰 Other projects
-
-| Project | Language | Release | Stars | Last commit |
-| :-- | :-- | :-- | :-- | :-- |
-| [LearningCProgramming](https://github.com/Stoupy51/LearningCProgramming) | C |  | [![](https://img.shields.io/github/stars/Stoupy51/LearningCProgramming?style=flat-square&label=)](https://github.com/Stoupy51/LearningCProgramming/stargazers) | [![](https://img.shields.io/github/last-commit/Stoupy51/LearningCProgramming?style=flat-square&label=)](https://github.com/Stoupy51/LearningCProgramming/commits) |
-| [AutoReport](https://github.com/Stoupy51/AutoReport "AutoReport is a Python program aiming to automatically make reports by recording audio.") | Python |  | [![](https://img.shields.io/github/stars/Stoupy51/AutoReport?style=flat-square&label=)](https://github.com/Stoupy51/AutoReport/stargazers) | [![](https://img.shields.io/github/last-commit/Stoupy51/AutoReport?style=flat-square&label=)](https://github.com/Stoupy51/AutoReport/commits) |
-| [MachineLearningFromScratch](https://github.com/Stoupy51/MachineLearningFromScratch "Attempt to create a Machine Learning system that can be used (From scratch)") | C |  | [![](https://img.shields.io/github/stars/Stoupy51/MachineLearningFromScratch?style=flat-square&label=)](https://github.com/Stoupy51/MachineLearningFromScratch/stargazers) | [![](https://img.shields.io/github/last-commit/Stoupy51/MachineLearningFromScratch?style=flat-square&label=)](https://github.com/Stoupy51/MachineLearningFromScratch/commits) |
-| [Paralya/SiteWeb](https://github.com/Paralya/SiteWeb "Site web de Paralya V2") | HTML |  | [![](https://img.shields.io/github/stars/Paralya/SiteWeb?style=flat-square&label=)](https://github.com/Paralya/SiteWeb/stargazers) | [![](https://img.shields.io/github/last-commit/Paralya/SiteWeb?style=flat-square&label=)](https://github.com/Paralya/SiteWeb/commits) |
-
-### 🎓 School and university
-
-| Project | Language | Release | Stars | Last commit |
-| :-- | :-- | :-- | :-- | :-- |
-| [SportSocialNetwork](https://github.com/Stoupy51/SportSocialNetwork "Réseau Social basé sur le sport afin de réunir sportifs et coachs autour d'un site. Il a été crée dans le cadre du Projet S3 de ma formation en DUT Informatique ") | PHP |  | [![](https://img.shields.io/github/stars/Stoupy51/SportSocialNetwork?style=flat-square&label=)](https://github.com/Stoupy51/SportSocialNetwork/stargazers) | [![](https://img.shields.io/github/last-commit/Stoupy51/SportSocialNetwork?style=flat-square&label=)](https://github.com/Stoupy51/SportSocialNetwork/commits) |
-| [JeFilmeLeMetierQuiMePlait](https://github.com/Stoupy51/JeFilmeLeMetierQuiMePlait "Site Internet basé sur le métier de Game Designer avec une interview avec un étudiant dans le milieu. Il a été crée dans le cadre du Projet S1 de ma formation en DUT Informatique.") | HTML |  | [![](https://img.shields.io/github/stars/Stoupy51/JeFilmeLeMetierQuiMePlait?style=flat-square&label=)](https://github.com/Stoupy51/JeFilmeLeMetierQuiMePlait/stargazers) | [![](https://img.shields.io/github/last-commit/Stoupy51/JeFilmeLeMetierQuiMePlait?style=flat-square&label=)](https://github.com/Stoupy51/JeFilmeLeMetierQuiMePlait/commits) |
-| [QuizCulture](https://github.com/Stoupy51/QuizCulture "Site Internet basé sur des Questions que les utilisateurs peuvent proposer. Il a été crée dans le cadre du Projet S2 de ma formation en DUT Informatique") | PHP |  | [![](https://img.shields.io/github/stars/Stoupy51/QuizCulture?style=flat-square&label=)](https://github.com/Stoupy51/QuizCulture/stargazers) | [![](https://img.shields.io/github/last-commit/Stoupy51/QuizCulture?style=flat-square&label=)](https://github.com/Stoupy51/QuizCulture/commits) |
-| [INFO0909_SMA](https://github.com/Stoupy51/INFO0909_SMA "University course for Multi Agents System") | Python | [![](https://img.shields.io/github/v/release/Stoupy51/INFO0909_SMA?style=flat-square&label=)](https://github.com/Stoupy51/INFO0909_SMA/releases) | [![](https://img.shields.io/github/stars/Stoupy51/INFO0909_SMA?style=flat-square&label=)](https://github.com/Stoupy51/INFO0909_SMA/stargazers) | [![](https://img.shields.io/github/last-commit/Stoupy51/INFO0909_SMA?style=flat-square&label=)](https://github.com/Stoupy51/INFO0909_SMA/commits) |
-
-### 🤝 Contributions
+<details>
+<summary><b>🤝 Contributions</b> (16)</summary>
 
 | Project | Stars | Merged PRs |
 | :-- | :-- | :-- |
@@ -111,8 +94,34 @@ Hover a project for its description. The tables below are rebuilt every day by [
 | [edayot/grappling_hook](https://github.com/edayot/grappling_hook "A simple grappling hook datapack") | [![](https://img.shields.io/github/stars/edayot/grappling_hook?style=flat-square&label=)](https://github.com/edayot/grappling_hook/stargazers) | [1](https://github.com/edayot/grappling_hook/pulls?q=is%3Apr+is%3Amerged+author%3AStoupy51) |
 | [Enchanted-Book/Knowledge-Book](https://github.com/Enchanted-Book/Knowledge-Book) | [![](https://img.shields.io/github/stars/Enchanted-Book/Knowledge-Book?style=flat-square&label=)](https://github.com/Enchanted-Book/Knowledge-Book/stargazers) | [1](https://github.com/Enchanted-Book/Knowledge-Book/pulls?q=is%3Apr+is%3Amerged+author%3AStoupy51) |
 
+</details>
+
 <details>
-<summary>🗃️ Smaller things, without stars or releases (28)</summary>
+<summary><b>🧰 Other projects</b> (4)</summary>
+
+| Project | Language | Release | Stars | Last commit |
+| :-- | :-- | :-- | :-- | :-- |
+| [LearningCProgramming](https://github.com/Stoupy51/LearningCProgramming) | C |  | [![](https://img.shields.io/github/stars/Stoupy51/LearningCProgramming?style=flat-square&label=)](https://github.com/Stoupy51/LearningCProgramming/stargazers) | [![](https://img.shields.io/github/last-commit/Stoupy51/LearningCProgramming?style=flat-square&label=)](https://github.com/Stoupy51/LearningCProgramming/commits) |
+| [AutoReport](https://github.com/Stoupy51/AutoReport "AutoReport is a Python program aiming to automatically make reports by recording audio.") | Python |  | [![](https://img.shields.io/github/stars/Stoupy51/AutoReport?style=flat-square&label=)](https://github.com/Stoupy51/AutoReport/stargazers) | [![](https://img.shields.io/github/last-commit/Stoupy51/AutoReport?style=flat-square&label=)](https://github.com/Stoupy51/AutoReport/commits) |
+| [MachineLearningFromScratch](https://github.com/Stoupy51/MachineLearningFromScratch "Attempt to create a Machine Learning system that can be used (From scratch)") | C |  | [![](https://img.shields.io/github/stars/Stoupy51/MachineLearningFromScratch?style=flat-square&label=)](https://github.com/Stoupy51/MachineLearningFromScratch/stargazers) | [![](https://img.shields.io/github/last-commit/Stoupy51/MachineLearningFromScratch?style=flat-square&label=)](https://github.com/Stoupy51/MachineLearningFromScratch/commits) |
+| [Paralya/SiteWeb](https://github.com/Paralya/SiteWeb "Site web de Paralya V2") | HTML |  | [![](https://img.shields.io/github/stars/Paralya/SiteWeb?style=flat-square&label=)](https://github.com/Paralya/SiteWeb/stargazers) | [![](https://img.shields.io/github/last-commit/Paralya/SiteWeb?style=flat-square&label=)](https://github.com/Paralya/SiteWeb/commits) |
+
+</details>
+
+<details>
+<summary><b>🎓 School and university</b> (4)</summary>
+
+| Project | Language | Release | Stars | Last commit |
+| :-- | :-- | :-- | :-- | :-- |
+| [SportSocialNetwork](https://github.com/Stoupy51/SportSocialNetwork "Réseau Social basé sur le sport afin de réunir sportifs et coachs autour d'un site. Il a été crée dans le cadre du Projet S3 de ma formation en DUT Informatique ") | PHP |  | [![](https://img.shields.io/github/stars/Stoupy51/SportSocialNetwork?style=flat-square&label=)](https://github.com/Stoupy51/SportSocialNetwork/stargazers) | [![](https://img.shields.io/github/last-commit/Stoupy51/SportSocialNetwork?style=flat-square&label=)](https://github.com/Stoupy51/SportSocialNetwork/commits) |
+| [JeFilmeLeMetierQuiMePlait](https://github.com/Stoupy51/JeFilmeLeMetierQuiMePlait "Site Internet basé sur le métier de Game Designer avec une interview avec un étudiant dans le milieu. Il a été crée dans le cadre du Projet S1 de ma formation en DUT Informatique.") | HTML |  | [![](https://img.shields.io/github/stars/Stoupy51/JeFilmeLeMetierQuiMePlait?style=flat-square&label=)](https://github.com/Stoupy51/JeFilmeLeMetierQuiMePlait/stargazers) | [![](https://img.shields.io/github/last-commit/Stoupy51/JeFilmeLeMetierQuiMePlait?style=flat-square&label=)](https://github.com/Stoupy51/JeFilmeLeMetierQuiMePlait/commits) |
+| [QuizCulture](https://github.com/Stoupy51/QuizCulture "Site Internet basé sur des Questions que les utilisateurs peuvent proposer. Il a été crée dans le cadre du Projet S2 de ma formation en DUT Informatique") | PHP |  | [![](https://img.shields.io/github/stars/Stoupy51/QuizCulture?style=flat-square&label=)](https://github.com/Stoupy51/QuizCulture/stargazers) | [![](https://img.shields.io/github/last-commit/Stoupy51/QuizCulture?style=flat-square&label=)](https://github.com/Stoupy51/QuizCulture/commits) |
+| [INFO0909_SMA](https://github.com/Stoupy51/INFO0909_SMA "University course for Multi Agents System") | Python | [![](https://img.shields.io/github/v/release/Stoupy51/INFO0909_SMA?style=flat-square&label=)](https://github.com/Stoupy51/INFO0909_SMA/releases) | [![](https://img.shields.io/github/stars/Stoupy51/INFO0909_SMA?style=flat-square&label=)](https://github.com/Stoupy51/INFO0909_SMA/stargazers) | [![](https://img.shields.io/github/last-commit/Stoupy51/INFO0909_SMA?style=flat-square&label=)](https://github.com/Stoupy51/INFO0909_SMA/commits) |
+
+</details>
+
+<details>
+<summary><b>🗃️ Smaller things, without stars or releases</b> (28)</summary>
 
 | Project | Category | Language | Description |
 | :-- | :-- | :-- | :-- |

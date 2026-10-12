@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">Stoupy51&#39;s GitHub Stats, Rank: A</title>
-        <desc id="descId">Total Stars Earned: 163, Total Commits  : 7996, Total PRs: 110, Total Issues: 74, Contributed to (last year): 29</desc>
+        <desc id="descId">Total Stars Earned: 163, Total Commits  : 7997, Total PRs: 110, Total Issues: 74, Contributed to (last year): 29</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 41.938272210913034;
+        stroke-dashoffset: 41.938158519485725;
       }
     }
   
