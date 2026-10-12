@@ -8,8 +8,8 @@
         role="img"
         aria-labelledby="descId"
       >
-        <title id="titleId">Alexandre Collignon&#39;s GitHub Stats, Rank: A</title>
-        <desc id="descId">Total Stars Earned: 158, Total Commits  : 7994, Total PRs: 110, Total Issues: 74, Contributed to (last year): 29</desc>
+        <title id="titleId">Stoupy51&#39;s GitHub Stats, Rank: A</title>
+        <desc id="descId">Total Stars Earned: 163, Total Commits  : 7995, Total PRs: 110, Total Issues: 74, Contributed to (last year): 29</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 42.56846943334422;
+        stroke-dashoffset: 42.09562285072156;
       }
     }
   
@@ -133,7 +133,7 @@
         y="0"
         class="header"
         data-testid="header"
-      >Alexandre Collignon&#39;s GitHub Stats</text>
+      >Stoupy51&#39;s GitHub Stats</text>
     </g>
       </g>
     
@@ -169,7 +169,7 @@
         x="224.01"
         y="12.5"
         data-testid="stars"
-      >158</text>
+      >163</text>
     </g>
   </g><g transform="translate(0, 25)">
     <g class="stagger" style="animation-delay: 600ms" transform="translate(25, 0)">
