@@ -140,9 +140,10 @@ Hover a project for its description. The tables below are rebuilt every day by [
 | [RemoteFolderSync](https://github.com/Stoupy51/RemoteFolderSync "Project attempt to create an efficient remote folder synchronization using C. [Windows / Linux]") | 🧰 Other projects | C | Project attempt to create an efficient remote folder synchronization using C. [Windows / Linux] |
 | [c-c---comments-for-c](https://github.com/Stoupy51/c-c---comments-for-c) | 🧰 Other projects |  |  |
 | [Paralya/Ressources](https://github.com/Paralya/Ressources "Ressources pour Paralya V2") | 🧰 Other projects |  | Ressources pour Paralya V2 |
-| [INFO0705-Analyse](https://github.com/Stoupy51/INFO0705-Analyse) | 🎓 School and university | R |  |
 | [TER_M2](https://github.com/Stoupy51/TER_M2) | 🎓 School and university | Python |  |
 | [INFO0901_GenerativeAI](https://github.com/Stoupy51/INFO0901_GenerativeAI) | 🎓 School and university | Python |  |
+| [INFO0808-Visualisation](https://github.com/Stoupy51/INFO0808-Visualisation) | 🎓 School and university | R |  |
+| [INFO0705-Analyse](https://github.com/Stoupy51/INFO0705-Analyse) | 🎓 School and university | R |  |
 | [INFO0908_OpenData](https://github.com/Stoupy51/INFO0908_OpenData "University project during 5th year, about open data") | 🎓 School and university | Python | University project during 5th year, about open data |
 | [INFO0907_Blockchain](https://github.com/Stoupy51/INFO0907_Blockchain) | 🎓 School and university | Python |  |
 | [INFO0911_ImageAnalysis](https://github.com/Stoupy51/INFO0911_ImageAnalysis "University project during 5th year, about image treatments and analysis") | 🎓 School and university | Python | University project during 5th year, about image treatments and analysis |
@@ -150,7 +151,6 @@ Hover a project for its description. The tables below are rebuilt every day by [
 | [StageM1Info](https://github.com/Stoupy51/StageM1Info) | 🎓 School and university | Python |  |
 | [ProjetINFO0803](https://github.com/Stoupy51/ProjetINFO0803) | 🎓 School and university | Python |  |
 | [INFO0804](https://github.com/Stoupy51/INFO0804) | 🎓 School and university | R |  |
-| [INFO0808-Visualisation](https://github.com/Stoupy51/INFO0808-Visualisation) | 🎓 School and university | R |  |
 | [807-DevOps-TD1](https://github.com/Stoupy51/807-DevOps-TD1) | 🎓 School and university | Python |  |
 | [L3InfoCrypto](https://github.com/Stoupy51/L3InfoCrypto) | 🎓 School and university | Python |  |
 | [Licence-3-Info](https://github.com/Stoupy51/Licence-3-Info) | 🎓 School and university | C |  |
