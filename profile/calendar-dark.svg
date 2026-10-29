@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="721" height="177" viewBox="0 0 721 177" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#f0f6fc">
-<text y="24" font-size="22" font-weight="600">4,740 contributions in the last year</text>
+<text y="24" font-size="22" font-weight="600">4,743 contributions in the last year</text>
 <text x="45" y="50">Nov</text>
 <text x="110" y="50">Dec</text>
 <text x="162" y="50">Jan</text>
@@ -383,6 +383,7 @@
 <rect x="708" y="71" width="10" height="10" rx="2" fill="#033a16"/>
 <rect x="708" y="84" width="10" height="10" rx="2" fill="#033a16"/>
 <rect x="708" y="97" width="10" height="10" rx="2" fill="#033a16"/>
+<rect x="708" y="110" width="10" height="10" rx="2" fill="#151b23"/>
 <text x="612" y="169" text-anchor="end">Less</text>
 <rect x="616" y="160" width="10" height="10" rx="2" fill="#151b23"/>
 <rect x="629" y="160" width="10" height="10" rx="2" fill="#033a16"/>
